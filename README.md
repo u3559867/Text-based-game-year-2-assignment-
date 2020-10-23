@@ -14,10 +14,10 @@ There are 10 levels in this game, each floor consists of a 5x5 plane, where the 
 
 Example of what the screen shows:
 
-OCOOO
-OOAOO
-OOOOO
-OOOOC
+OCOOO  
+OOAOO  
+OOOOO  
+OOOOC  
 XOOOO
 
 The player (labeled X) is spawned at the bottom-left corner of the floor.
@@ -35,12 +35,12 @@ DEF gives more guesses.
 
 Combat system (if chose to attack the alien):
 
-OOOOOOF
-OPOWOOO
-OOOOWOO
-OWOXOOO
-OOOOOOO
-OOOOOOO
+OOOOOOF  
+OPOWOOO  
+OOOOWOO  
+OWOXOOO  
+OOOOOOO  
+OOOOOOO  
 OOOOOEO
 
 The player (labelled X) is spawned in the middle of a 7x7 floor, player can exit the battle (flee from the battle) by running to the upper right corner.
