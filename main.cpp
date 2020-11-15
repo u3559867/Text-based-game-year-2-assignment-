@@ -6,6 +6,8 @@
 #include <vector>
 #include <string>
 
+#define PAUSE printf("Press Enter to continue..."); fgetc(stdin);  
+
 using namespace std;
 int stats[8]={5,5,1,1,0,0,0,0};
 vector<vector<char>> levelmap(5, vector<char>(5, '0'));
@@ -21,9 +23,9 @@ void specialevent(int x){
 }
 
 void cd(string x){//stands for chapter display
-    system("cls");
+    system("clear");
     cout<<x<<endl<<endl;
-    system("pause");
+    PAUSE;
 }
 
 int story(int x[8]){
@@ -121,12 +123,12 @@ int story(int x[8]){
             cd("You stabbed Nez'ko through the chestplate using a pocket knife with all your might, she fell onto the ground");
             cd("Nez'ko: I... wanted to protect you from the dangers of this planet...");
             cd("Nez'ko: Seems like you are not the one that I should be protecting...");
-            system("cls");
+            system("clear");
             x[4]+=100;
             cout<<"You have killed princess Nez'ko and scavenged 100 Dark Matter"<<endl;
             x[6]++;
             x[7]++;
-            system("pause");
+            PAUSE
         }
         if(x[6]>=1 && x[6]<9){
             cd("Nez'ko: *Sighs*");
@@ -153,12 +155,12 @@ int story(int x[8]){
                     cd("You backstabbed Nez'ko while she was off guard. She presses her hands onto the wounds, but the bleeding won't stop");
                     cd("Nez'ko: Why...");
                     cd("I thought we were... Friends...");
-                    system("cls");
+                    system("clear");
                     x[4]+=100;
                     cout<<"You have killed princess Nez'ko and scavenged 100 Dark Matter"<<endl;
                     x[6]++;
                     x[7]++;
-                    system("pause");
+                    PAUSE
                     cd("You left her body there and advanced.");
                     break;
                 case 'N':
@@ -376,7 +378,7 @@ int kingbattle(int x[8]){//died return 1, killed king return 0;extra enemy HP, e
     int ypos=3;
     do
     {
-        system("cls");
+        system("clear");
         if(karma<0){
             y--;
             karma++;
@@ -715,7 +717,7 @@ int Battle(int x[8], int &y){
     int ypos=3;
     do
     {
-        system("cls");
+        system("clear");
         cout<<"Enemy HP: "<<enehp<<endl<<endl;
         cout<<"Your HP: "<<y<<endl<<endl;
         for(int i=0;i<7;i++){
@@ -999,7 +1001,7 @@ void levelgenerate(vector<vector<char>> &x,int a){
 
 int Levelstart(int x[8]){//ATK, HP, SPD, DEX, DM, Level, Kills, Killed princess (1 or 0), //return 1=dead=>level lost=>gameover return 2=flee/negotiation fail=>player back to starting position
     int currentalien=(x[5]+2)/2;
-    system("cls");
+    system("clear");
     levelgenerate(levelmap,currentalien);
     int floatincome;
     int income;
@@ -1014,7 +1016,7 @@ int Levelstart(int x[8]){//ATK, HP, SPD, DEX, DM, Level, Kills, Killed princess 
                 levelmap[0][4]='F';
         }
         char movement=0;
-        system("cls");
+        system("clear");
         cout<<"Level "<<x[5]<<endl<<endl;
         for(int i=0;i<5;i++){
             for(int j=0;j<5;j++){
@@ -1061,7 +1063,7 @@ int Levelstart(int x[8]){//ATK, HP, SPD, DEX, DM, Level, Kills, Killed princess 
                 cout<<"Dark Matter: "<<x[4]<<endl;
                 cout<<"Level: "<<x[5]<<endl;
                 cout<<"Kills: "<<x[6]<<endl;
-                system("pause");
+                PAUSE
                 break;
         }
         if(levelmap[ypos][xpos]=='0'){
@@ -1071,7 +1073,7 @@ int Levelstart(int x[8]){//ATK, HP, SPD, DEX, DM, Level, Kills, Killed princess 
             prevxpos=xpos;
         } else if(levelmap[ypos][xpos]=='A'){
             char choice=0;
-            system("cls");
+            system("clear");
             alienquote(x[6]);
             int outcome=9;
             int righttochoose=1;
@@ -1089,12 +1091,12 @@ int Levelstart(int x[8]){//ATK, HP, SPD, DEX, DM, Level, Kills, Killed princess 
                         case 1:
                             return 1;
                         case 0:
-                            system("cls");
+                            system("clear");
                             floatincome=rand()%5;
                             income=3*(15+floatincome)*(10+x[3])/10;
                             x[4]+=income;
                             cout<<"You have killed the alien and scavenged "<<income<<" Dark Matter"<<endl;
-                            system("pause");
+                            PAUSE
                             currentalien--;
                             x[6]++;
                             levelmap[ypos][xpos]='X';
@@ -1110,30 +1112,30 @@ int Levelstart(int x[8]){//ATK, HP, SPD, DEX, DM, Level, Kills, Killed princess 
                     case 'N':
                     case 'n':
                         if(x[6]>=6 && x[6]<11){
-                            system("cls");
+                            system("clear");
                             cout<<"But you don't want to."<<endl;
-                            system("pause");
+                            PAUSE
                             righttochoose--;
                             choice = 'K';
                             continue;
                         } else if(x[6]>=11 && x[6]<16){
-                            system("cls");
+                            system("clear");
                             cout<<"But you want to kill it instead."<<endl;
-                            system("pause");
+                            PAUSE
                             righttochoose--;
                             choice = 'K';
                             continue;
                         } else if(x[6]>=16 && x[6]<21){
-                            system("cls");
+                            system("clear");
                             cout<<"Why do you want to talk to them? Isn't it fun to watch them die?"<<endl;
-                            system("pause");
+                            PAUSE
                             righttochoose--;
                             choice = 'K';
                             continue;
                         } else if(x[6]>=21){
-                            system("cls");
+                            system("clear");
                             cout<<"T h e y   d o   n o t   d e s e r v e   t o   l i v e ."<<endl;
-                            system("pause");
+                            PAUSE
                             righttochoose--;
                             choice = 'K';
                             continue;
@@ -1141,12 +1143,12 @@ int Levelstart(int x[8]){//ATK, HP, SPD, DEX, DM, Level, Kills, Killed princess 
                         outcome=Hangman(stats);
                         switch(outcome){
                             case 0:
-                                system("cls");
+                                system("clear");
                                 floatincome=rand()%5;
                                 income=2*(15+floatincome)*(10+x[3])/10;
                                 x[4]+=income;
                                 cout<<"You two had a great chat and he gifted you "<<income<<" Dark Matter"<<endl;
-                                system("pause");
+                                PAUSE
                                 currentalien--;
                                 levelmap[ypos][xpos]='X';
                                 levelmap[prevypos][prevxpos]='0';
@@ -1161,22 +1163,22 @@ int Levelstart(int x[8]){//ATK, HP, SPD, DEX, DM, Level, Kills, Killed princess 
                 }
             } while (outcome== 9);
         } else if(levelmap[ypos][xpos]=='C'){
-            system("cls");
+            system("clear");
             floatincome=rand()%5;
             income=(15+floatincome)*(10+x[3])/10;
             x[4]+=income;
             cout<<"You have found "<<income<<" Dark Matter in the chest, and your health is recovered!\n";
             int currenthp=x[1];
-            system("pause");
+            PAUSE
             levelmap[ypos][xpos]='X';
             levelmap[prevypos][prevxpos]='0';
             prevypos=ypos;
             prevxpos=xpos;
             currenthp=x[1];
         } else if(levelmap[ypos][xpos]=='F'){
-            system("cls");
+            system("clear");
             cout<<"level "<<x[5]<<" completed\n";
-            system("pause");
+            PAUSE
             return 0;
         }
     } while (true);
@@ -1188,7 +1190,7 @@ void upgrade(int x[8]){
     char upgrades='9';
         do
         {
-        system("cls");
+        system("clear");
         cout<<"Press 1 to level up your ATK (increase Attack Damage during battle)\n";
         cout<<"Press 2 to level up your Max HP (increase Max Health)\n";
         cout<<"Press 3 to level up your SPD (increase chance of evading an enemy attack during battle)\n";
@@ -1208,9 +1210,9 @@ void upgrade(int x[8]){
                     x[4]-=30*(x[0]-4);
                     x[0]++;
                 } else {
-                    system("cls");
+                    system("clear");
                     cout<<"You do not have enough Dark Matter!"<<endl;
-                    system("pause");
+                    PAUSE
                 }
                 break;
             case '2':
@@ -1218,9 +1220,9 @@ void upgrade(int x[8]){
                     x[4]-=30*(x[1]-4);
                     x[1]++;
                 } else {
-                    system("cls");
+                    system("clear");
                     cout<<"You do not have enough Dark Matter!"<<endl;
-                    system("pause");
+                    PAUSE
                 }
                 break;
             case '3':
@@ -1228,9 +1230,9 @@ void upgrade(int x[8]){
                     x[4]-=30*(x[2]);
                     x[2]++;
                 } else {
-                    system("cls");
+                    system("clear");
                     cout<<"You do not have enough Dark Matter!"<<endl;
-                    system("pause");
+                    PAUSE
                 }
                 break;
             case '4':
@@ -1238,9 +1240,9 @@ void upgrade(int x[8]){
                     x[4]-=30*(x[3]/2);
                     x[3]++;
                 } else {
-                    system("cls");
+                    system("clear");
                     cout<<"You do not have enough Dark Matter!"<<endl;
-                    system("pause");
+                    PAUSE
                 }
                 break;
         }
@@ -1269,26 +1271,14 @@ int Gamestart(int x[8]){//return 1=killed return, return 2=ending1...etc
 
 int main(){
     cout << R"(
-                   ,----,                                                   ,----,
-                 ,/   .`|                                                 ,/   .`|  ,----..
-  .--.--.      ,`   .'  : ,---,       ,-.----.             .--.--.      ,`   .'  : /   /   \  ,-.----.
- /  /    '.  ;    ;     /'  .' \      \    /  \           /  /    '.  ;    ;     //   .     : \    /  \        ,---,
-|  :  /`. /.'___,/    ,'/  ;    '.    ;   :    \         |  :  /`. /.'___,/    ,'.   /   ;.  \;   :    \      /_ ./|
-;  |  |--` |    :     |:  :       \   |   | .\ :         ;  |  |--` |    :     |.   ;   /  ` ;|   | .\ :,---, |  ' :
-|  :  ;_   ;    |.';  ;:  |   /\   \  .   : |: |         |  :  ;_   ;    |.';  ;;   |  ; \ ; |.   : |: /___/ \.  : |
- \  \    `.`----'  |  ||  :  ' ;.   : |   |  \ :          \  \    `.`----'  |  ||   :  | ; | '|   |  \ :.  \  \ ,' '
-  `----.   \   '   :  ;|  |  ;/  \   \|   : .  /           `----.   \   '   :  ;.   |  ' ' ' :|   : .  / \  ;  `  ,'
-  __ \  \  |   |   |  ''  :  | \  \ ,';   | |  \           __ \  \  |   |   |  ''   ;  \; /  |;   | |  \  \  \    '
- /  /`--'  /   '   :  ||  |  '  '--'  |   | ;\  \         /  /`--'  /   '   :  | \   \  ',  / |   | ;\  \  '  \   |
-'--'.     /    ;   |.' |  :  :        :   ' | \.'        '--'.     /    ;   |.'   ;   :    /  :   ' | \.'   \  ;  ;
-  `--'---'     '---'   |  | ,'        :   : :-'            `--'---'     '---'      \   \ .'   :   : :-'      :  \  \
-                       `--''          |   |.'                                       `---`     |   |.'         \  ' ;
-                                      `---'                                                   `---'            `--`
-
-
-
-
-
+________________________________________________________________________________________
+__/_____|_|_______|_____/\_____|_____\_____/_____|_|_______|__/____\__|_____\__\_\___/_/
+_|_(_________|_|_______/__\____|_|__)_|___|_(_________|_|____|_|__|_|_|_|__)_|__\_\_/_/_
+__\____\_____|_|______/_/\_\___|_____/_____\____\_____|_|____|_|__|_|_|_____/____\___/__
+______)_|____|_|_____/______\__|_|_\_\_________)_|____|_|____|_|__|_|_|_|_\_\_____|_|___
+_|_____/_____|_|____/_/____\_\_|_|__\_\___|_____/_____|_|_____\____/__|_|__\_\____|_|___
+________________________________________________________________________________________
+________________________________________________________________________________________
                                       )"
     <<endl;
     cout<<"Press N for new game and C to load previous save file."<<endl;
@@ -1315,7 +1305,7 @@ int main(){
                 break;
         }
     } while (gameover==9);
-    system("cls");
+    system("clear");
     switch(gameover){
     case 1:
         cout<<"You have died!"<<endl;
