@@ -126,7 +126,7 @@ int story(int x[8]){//Storyline display; input player stats; uses cd() to displa
             cd("Nez'ko: Seems like you are not the one that I should be protecting...");
             system("clear");
             x[4]+=100;
-            cout<<"You have killed princess Nez'ko and scavenged 100 Dark Matter"<<endl;
+            cout<<"You have killed princess Nez'ko and scavenged 100 Dark Matter"<<endl<<endl;
             x[6]++;
             x[7]++;
             PAUSE();
@@ -158,16 +158,16 @@ int story(int x[8]){//Storyline display; input player stats; uses cd() to displa
                     cd("I thought we were... Friends...");
                     system("clear");
                     x[4]+=100;
-                    cout<<"You have killed princess Nez'ko and scavenged 100 Dark Matter"<<endl;
+                    cout<<"You have killed princess Nez'ko and scavenged 100 Dark Matter"<<endl<<endl;
                     x[6]++;
                     x[7]++;
                     PAUSE();
                     cd("You left her body there and advanced.");
-                    break;
+                    return 0;
                 case 'N':
                 case 'n':
                     cd("You wave her goodbye and advanced.");
-                    break;
+                    return 0;
                 }
             } while(true);
         }
@@ -208,7 +208,7 @@ int story(int x[8]){//Storyline display; input player stats; uses cd() to displa
             cd("King Taecae: I'm sorry... my people.");
             cd("King Taecae: Nez'ko, dad is coming...");
             return 4;
-        } if(x[6]<37 && x[6]>0 && x[7]<0){
+        } if(x[6]<37 && x[6]>0 && x[7]==0){
             cd("King Taecae: Several citizens have been missing and my daughter told me that you're not the murderer.");
             cd("King Taecae: I wanted to believe but now, I cannot.");
             cd("King Taecae: When you walked in, there's the smell of blood.");
@@ -410,7 +410,7 @@ int kingbattle(int x[8]){//input: your stats; you died return 1, killed king ret
                         stun=4;
                         enehp-=x[0];
                         regenerate=true;
-                        if(enehp==0){
+                        if(enehp<=0){
                             return 0;
                         }
                         break;
@@ -437,7 +437,7 @@ int kingbattle(int x[8]){//input: your stats; you died return 1, killed king ret
                         stun=4;
                         enehp-=x[0];
                         regenerate=true;
-                        if(enehp==0){
+                        if(enehp<=0){
                             return 0;
                         }
                         break;
@@ -464,7 +464,7 @@ int kingbattle(int x[8]){//input: your stats; you died return 1, killed king ret
                         stun=4;
                         enehp-=x[0];
                         regenerate=true;
-                        if(enehp==0){
+                        if(enehp<=0){
                             return 0;
                         }
                         break;
@@ -491,7 +491,7 @@ int kingbattle(int x[8]){//input: your stats; you died return 1, killed king ret
                         stun=4;
                         enehp-=x[0];
                         regenerate=true;
-                        if(enehp==0){
+                        if(enehp<=0){
                             return 0;
                         }
                         break;
@@ -533,7 +533,7 @@ int kingbattle(int x[8]){//input: your stats; you died return 1, killed king ret
                     enehp-=x[0];
                     enexpos++;
                     regenerate=true;
-                    if(enehp==0){
+                    if(enehp<=0){
                         return 0;
                     }
                 }
@@ -556,7 +556,7 @@ int kingbattle(int x[8]){//input: your stats; you died return 1, killed king ret
                     enehp-=x[0];
                     enexpos--;
                     regenerate=true;
-                    if(enehp==0){
+                    if(enehp<=0){
                         return 0;
                     }
                 }
@@ -579,7 +579,7 @@ int kingbattle(int x[8]){//input: your stats; you died return 1, killed king ret
                     enehp-=x[0];
                     eneypos++;
                     regenerate=true;
-                    if(enehp==0){
+                    if(enehp<=0){
                         return 0;
                     }
                 }
@@ -602,7 +602,7 @@ int kingbattle(int x[8]){//input: your stats; you died return 1, killed king ret
                     enehp-=x[0];
                     eneypos--;
                     regenerate=true;
-                    if(enehp==0){
+                    if(enehp<=0){
                         return 0;
                     }
                 }
@@ -706,7 +706,7 @@ int kingbattle(int x[8]){//input: your stats; you died return 1, killed king ret
 int Battle(int x[8], int &y){//input: your stats; you died return 1; they died return 0; you fleed return 2 (you cannot flee once you damaged the alien); walk towards walls(numbers 1-4, which represents their strength) to try to break them)
     battlegenerate(combatlevel);
     battlegenerateweakness(combatlevel);
-    int enehp=20+x[6]*2;
+    int enehp=20+x[5]*2;
     int evadechance=(3*100/(2+x[2]));
     bool regenerate=false;
     char movement=0;
@@ -746,7 +746,7 @@ int Battle(int x[8], int &y){//input: your stats; you died return 1; they died r
                         combatlevel[0][6]='0';
                         enehp-=x[0];
                         regenerate=true;
-                        if(enehp==0){
+                        if(enehp<=0){
                             return 0;
                         }
                         break;
@@ -769,7 +769,7 @@ int Battle(int x[8], int &y){//input: your stats; you died return 1; they died r
                         combatlevel[0][6]='0';
                         enehp-=x[0];
                         regenerate=true;
-                        if(enehp==0){
+                        if(enehp<=0){
                             return 0;
                         }
                         break;
@@ -792,7 +792,7 @@ int Battle(int x[8], int &y){//input: your stats; you died return 1; they died r
                         combatlevel[0][6]='0';
                         enehp-=x[0];
                         regenerate=true;
-                        if(enehp==0){
+                        if(enehp<=0){
                             return 0;
                         }
                         break;
@@ -815,7 +815,7 @@ int Battle(int x[8], int &y){//input: your stats; you died return 1; they died r
                         combatlevel[0][6]='0';
                         enehp-=x[0];
                         regenerate=true;
-                        if(enehp==0){
+                        if(enehp<=0){
                             return 0;
                         }
                         break;
@@ -1169,7 +1169,7 @@ int Levelstart(int x[8]){ //input=your stats; return 1=you died=>level lost=>gam
             income=(15+floatincome)*(10+x[3])/10;
             x[4]+=income;
             cout<<"You have found "<<income<<" Dark Matter in the chest, and your health is recovered!\n";
-            int currenthp=x[1];
+            currenthp=x[1];
             PAUSE();
             levelmap[ypos][xpos]='X';
             levelmap[prevypos][prevxpos]='0';
