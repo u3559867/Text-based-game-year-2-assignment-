@@ -7,7 +7,7 @@
 #include <string>
 
 using namespace std;
-int stats[8]={5,5,1,1,0,0,0,0};
+int stats[8]={5,5,1,1,0,0,0,0};//ATK, HP, SPD, DEX, DM, Level, Kills, Killed princess (1 or 0),
 vector<vector<char>> levelmap(5, vector<char>(5, '0'));
 vector<vector<char>> combatlevel(7, vector<char>(7, '0'));
 //char levelmap[5][5];
@@ -16,23 +16,20 @@ int battlegenerateweakness();
 int kingbattle(int x[8]);
 void alienquote();
 
-inline void PAUSE()
+inline void PAUSE()//system("pause") alternative for CS servers
 {
     std::string temp;
     std::cout << "Press Enter to continue..." << std::endl;
     std::getline(std::cin, temp);
 }
 
-void specialevent(int x){
-}
-
-void cd(string x){//stands for chapter display
+void cd(string x){//stands for chapter display; input:strings; cout story;
     system("clear");
     cout<<x<<endl<<endl;
     PAUSE();
 }
 
-int story(int x[8]){
+int story(int x[8]){//Storyline display; input player stats; uses cd() to display lines: return game endings when reached last level
     switch(x[5]){
     case 0:
         cd("???: Thank god! You're awake!");
@@ -268,7 +265,7 @@ int story(int x[8]){
 void save(){//Alex
 }
 
-char randomstrength(){
+char randomstrength(){//random wall strength in levels, i.e. function battlegenerate(); change random int to char
     int temp=rand()%4;
     switch(temp){
     case 0:
@@ -288,7 +285,7 @@ int Hangman(int x[8]){//Alex
     return 0;
 }
 
-void battlegenerate(vector<vector<char>> &x){
+void battlegenerate(vector<vector<char>> &x){//generate battlefield; input: 7x7 2d vector
     int maxwall=24;
     for(int i=0;i<7;i++){
         for(int j=0;j<7;j++){
@@ -314,7 +311,7 @@ void battlegenerate(vector<vector<char>> &x){
     x[6][0]='E';
 }
 
-void kingbattlegenerate(vector<vector<char>> &x){
+void kingbattlegenerate(vector<vector<char>> &x){//generate bossbattle; more walls, players -HP when breaking walls
     int maxwall=30;
     for(int i=0;i<7;i++){
         for(int j=0;j<7;j++){
@@ -339,7 +336,7 @@ void kingbattlegenerate(vector<vector<char>> &x){
     x[6][0]='E';
 }
 
-int battlegenerateweakness(vector<vector<char>> &x){
+int battlegenerateweakness(vector<vector<char>> &x){//generate weakness points in battlefield(step on=>enemy HP deduction according to your ATK
     bool generated=false;
     while(generated==false){
         for(int i=0;i<7;i++){
@@ -357,7 +354,7 @@ int battlegenerateweakness(vector<vector<char>> &x){
     }
 }
 
-int kingbattle(int x[8]){//died return 1, killed king return 0;extra enemy HP, extra enemy attack range, enemy can break thru walls when stuck; genocide=>weakpoints run away from player, more karma
+int kingbattle(int x[8]){//input: your stats; you died return 1, killed king return 0; extra enemy HP according to game events, enemy attack range+1, enemy can break thru walls when they are stuck, weakness points changes location when not stepped on for 10 turns; boss nerfs: they can step on weakness points, whenever weakness points are being stepped on, the boss is being stunned for 3 turns; genocide(killed all aliens)=>weakpoints move away from player every 2 turns, more karma
     int y=x[1];
     kingbattlegenerate(combatlevel);
     int karma=6-(x[6]-1)/12-x[7];
@@ -706,7 +703,7 @@ int kingbattle(int x[8]){//died return 1, killed king return 0;extra enemy HP, e
     } while (true);
 }
 
-int Battle(int x[8], int &y){
+int Battle(int x[8], int &y){//input: your stats; you died return 1; they died return 0; you fleed return 2 (you cannot flee once you damaged the alien); walk towards walls(numbers 1-4, which represents their strength) to try to break them)
     battlegenerate(combatlevel);
     battlegenerateweakness(combatlevel);
     int enehp=20+x[6]*2;
@@ -890,7 +887,7 @@ int Battle(int x[8], int &y){
     } while (true);
 }
 
-void alienquote(int x){
+void alienquote(int x){//input: your kills; cout: quotes by aliens
     int temp=rand()%2;
     if(x<6){
         switch(temp){
@@ -966,7 +963,7 @@ void Load(){//Alex
 
 }
 
-void levelgenerate(vector<vector<char>> &x,int a){
+void levelgenerate(vector<vector<char>> &x,int a){//generate level: 5x5 2d vector, no. of aliens in that level
     int y=a;
     int z=5;
     for(int i=0;i<5;i++){
@@ -1003,7 +1000,7 @@ void levelgenerate(vector<vector<char>> &x,int a){
     x[4][0]='X';
 }
 
-int Levelstart(int x[8]){//ATK, HP, SPD, DEX, DM, Level, Kills, Killed princess (1 or 0), //return 1=dead=>level lost=>gameover return 2=flee/negotiation fail=>player back to starting position
+int Levelstart(int x[8]){ //input=your stats; return 1=you died=>level lost=>gameover return 0=level completed=>next level
     int currentalien=(x[5]+2)/2;
     system("clear");
     levelgenerate(levelmap,currentalien);
@@ -1190,7 +1187,7 @@ int Levelstart(int x[8]){//ATK, HP, SPD, DEX, DM, Level, Kills, Killed princess 
     return 0;
 }
 
-void upgrade(int x[8]){
+void upgrade(int x[8]){//upgrades;input=your stats
     char upgrades='9';
         do
         {
@@ -1253,7 +1250,7 @@ void upgrade(int x[8]){
     } while (upgrades!='0');
 }
 
-int Gamestart(int x[8]){//return 1=killed return, return 2=ending1...etc
+int Gamestart(int x[8]){//return 1=you died, return 2=ending1...etc
     while(x[5]<11){
         if(Levelstart(stats)==1){
             return 1;
@@ -1269,11 +1266,17 @@ int Gamestart(int x[8]){//return 1=killed return, return 2=ending1...etc
         return 1;
     case 0:
         return 0;
+    case 2:
+        return 2;
+    case 3:
+        return 3;
+    case 4:
+        return 4;
     }
 }
 
 
-int main(){
+int main(){//main function
     cout << R"(
 ________________________________________________________________________________________
 __/_____|_|_______|_____/\_____|_____\_____/_____|_|_______|__/____\__|_____\__\_\___/_/
@@ -1287,8 +1290,6 @@ ________________________________________________________________________________
     <<endl;
     cout<<"Press N for new game and C to load previous save file."<<endl;
     srand(time(NULL));
-//    vector<vector<char>> levelmap(5, vector<char>(5, '0'));
-//    vector<vector<char>> combatlevel(7, vector<char>(7, '0'));
     char mainmenu=0;
     int gameover=9;
     do
