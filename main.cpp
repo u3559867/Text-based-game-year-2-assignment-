@@ -1205,7 +1205,7 @@ void upgrade(int x[8]){
         cout<<"ATK: "<<x[0]<<", level up cost: "<<30*(x[0]-4)<<endl;
         cout<<"Max HP: "<<x[1]<<", level up cost: "<<30*(x[1]-4)<<endl;
         cout<<"SPD: "<<x[2]<<", level up cost: "<<30*(x[2])<<endl;
-        cout<<"DEX: "<<x[3]<<", level up cost: "<<30*(x[3]/2)<<endl;
+        cout<<"DEX: "<<x[3]<<", level up cost: "<<30*(x[3]/2+1)<<endl;
         upgrades = getch();
         switch(upgrades)
         {
