@@ -6,8 +6,6 @@
 #include <vector>
 #include <string>
 
-#define PAUSE printf("Press Enter to continue..."); fgetc(stdin);  
-
 using namespace std;
 int stats[8]={5,5,1,1,0,0,0,0};
 vector<vector<char>> levelmap(5, vector<char>(5, '0'));
@@ -18,6 +16,12 @@ int battlegenerateweakness();
 int kingbattle(int x[8]);
 void alienquote();
 
+inline void PAUSE()
+{
+    std::string temp;
+    std::cout << "Press Enter to continue..." << std::endl;
+    std::getline(std::cin, temp);
+}
 
 void specialevent(int x){
 }
@@ -25,7 +29,7 @@ void specialevent(int x){
 void cd(string x){//stands for chapter display
     system("clear");
     cout<<x<<endl<<endl;
-    PAUSE;
+    PAUSE();
 }
 
 int story(int x[8]){
@@ -128,7 +132,7 @@ int story(int x[8]){
             cout<<"You have killed princess Nez'ko and scavenged 100 Dark Matter"<<endl;
             x[6]++;
             x[7]++;
-            PAUSE
+            PAUSE();
         }
         if(x[6]>=1 && x[6]<9){
             cd("Nez'ko: *Sighs*");
@@ -160,7 +164,7 @@ int story(int x[8]){
                     cout<<"You have killed princess Nez'ko and scavenged 100 Dark Matter"<<endl;
                     x[6]++;
                     x[7]++;
-                    PAUSE
+                    PAUSE();
                     cd("You left her body there and advanced.");
                     break;
                 case 'N':
@@ -1063,7 +1067,7 @@ int Levelstart(int x[8]){//ATK, HP, SPD, DEX, DM, Level, Kills, Killed princess 
                 cout<<"Dark Matter: "<<x[4]<<endl;
                 cout<<"Level: "<<x[5]<<endl;
                 cout<<"Kills: "<<x[6]<<endl;
-                PAUSE
+                PAUSE();
                 break;
         }
         if(levelmap[ypos][xpos]=='0'){
@@ -1096,7 +1100,7 @@ int Levelstart(int x[8]){//ATK, HP, SPD, DEX, DM, Level, Kills, Killed princess 
                             income=3*(15+floatincome)*(10+x[3])/10;
                             x[4]+=income;
                             cout<<"You have killed the alien and scavenged "<<income<<" Dark Matter"<<endl;
-                            PAUSE
+                            PAUSE();
                             currentalien--;
                             x[6]++;
                             levelmap[ypos][xpos]='X';
@@ -1114,28 +1118,28 @@ int Levelstart(int x[8]){//ATK, HP, SPD, DEX, DM, Level, Kills, Killed princess 
                         if(x[6]>=6 && x[6]<11){
                             system("clear");
                             cout<<"But you don't want to."<<endl;
-                            PAUSE
+                            PAUSE();
                             righttochoose--;
                             choice = 'K';
                             continue;
                         } else if(x[6]>=11 && x[6]<16){
                             system("clear");
                             cout<<"But you want to kill it instead."<<endl;
-                            PAUSE
+                            PAUSE();
                             righttochoose--;
                             choice = 'K';
                             continue;
                         } else if(x[6]>=16 && x[6]<21){
                             system("clear");
                             cout<<"Why do you want to talk to them? Isn't it fun to watch them die?"<<endl;
-                            PAUSE
+                            PAUSE();
                             righttochoose--;
                             choice = 'K';
                             continue;
                         } else if(x[6]>=21){
                             system("clear");
                             cout<<"T h e y   d o   n o t   d e s e r v e   t o   l i v e ."<<endl;
-                            PAUSE
+                            PAUSE();
                             righttochoose--;
                             choice = 'K';
                             continue;
@@ -1148,7 +1152,7 @@ int Levelstart(int x[8]){//ATK, HP, SPD, DEX, DM, Level, Kills, Killed princess 
                                 income=2*(15+floatincome)*(10+x[3])/10;
                                 x[4]+=income;
                                 cout<<"You two had a great chat and he gifted you "<<income<<" Dark Matter"<<endl;
-                                PAUSE
+                                PAUSE();
                                 currentalien--;
                                 levelmap[ypos][xpos]='X';
                                 levelmap[prevypos][prevxpos]='0';
@@ -1169,7 +1173,7 @@ int Levelstart(int x[8]){//ATK, HP, SPD, DEX, DM, Level, Kills, Killed princess 
             x[4]+=income;
             cout<<"You have found "<<income<<" Dark Matter in the chest, and your health is recovered!\n";
             int currenthp=x[1];
-            PAUSE
+            PAUSE();
             levelmap[ypos][xpos]='X';
             levelmap[prevypos][prevxpos]='0';
             prevypos=ypos;
@@ -1178,7 +1182,7 @@ int Levelstart(int x[8]){//ATK, HP, SPD, DEX, DM, Level, Kills, Killed princess 
         } else if(levelmap[ypos][xpos]=='F'){
             system("clear");
             cout<<"level "<<x[5]<<" completed\n";
-            PAUSE
+            PAUSE();
             return 0;
         }
     } while (true);
@@ -1212,7 +1216,7 @@ void upgrade(int x[8]){
                 } else {
                     system("clear");
                     cout<<"You do not have enough Dark Matter!"<<endl;
-                    PAUSE
+                    PAUSE();
                 }
                 break;
             case '2':
@@ -1222,7 +1226,7 @@ void upgrade(int x[8]){
                 } else {
                     system("clear");
                     cout<<"You do not have enough Dark Matter!"<<endl;
-                    PAUSE
+                    PAUSE();
                 }
                 break;
             case '3':
@@ -1232,7 +1236,7 @@ void upgrade(int x[8]){
                 } else {
                     system("clear");
                     cout<<"You do not have enough Dark Matter!"<<endl;
-                    PAUSE
+                    PAUSE();
                 }
                 break;
             case '4':
@@ -1242,7 +1246,7 @@ void upgrade(int x[8]){
                 } else {
                     system("clear");
                     cout<<"You do not have enough Dark Matter!"<<endl;
-                    PAUSE
+                    PAUSE();
                 }
                 break;
         }
