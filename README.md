@@ -93,7 +93,7 @@ The 5x5 and 7x7 floors in the levels are randomly generated, and the 'Dark matte
 After issuing the saving command, variables including the current level, aliens killed and all the player stats will be saved.
 
 3. Dynamic memory management
-The 5x5 and 7x7 floors would be made in 2D arrays and modified when the objects on the floors are being interacted. And the array memories (usually the 7x7 array) would be released once it is not being used
+The 5x5 and 7x7 floors would be made in 2D Char vectors and modified when the objects on the floors are being interacted. 
 
 4. File input/output (e.g., for loading/saving game status)
 The variables stored in an array with length 8 would be inputted into another file and loaded when the player selects 'load' instead of 'new game'.
