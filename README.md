@@ -10,7 +10,7 @@ Basic game rules:
 
 It is a basic 2D game with a storyline. In the year 2100, Earth's resources are almost exhausted. You play as a human sent to a new planet to search for a possible habitat.
 
-There are 10 levels in this game, each floor consists of a 5x5 plane, where the player must explore all the elements labelled 'A' on that level using keys WASD. After clearing each floor, the player can walk to the top left corner to reach the exit (labelled 'F'). The player can then use the 'Dark matter' harvested to get an upgrade on his/her stats (ATK(increases attack damage), HP(increases max hp), SPD(increases dodge rate), and DEX(increases 'Dark matter' drop)). Then the story/plot corresponding to that level will be displayed before advancing to the next floor. If the player dies in a level, then it will be game over and the player would need to restart the program and either start a new game or load the previous save (The game will automatically save when a player enters a new level).
+There are 10 levels in this game, each floor consists of a 5x5 plane, where the player must explore all the elements labelled 'A' on that level using keys WASD. After clearing each floor, the player can walk to the top left corner to reach the exit (labelled 'F'). The player can then use the 'Dark matter' harvested to get an upgrade on his/her stats (ATK(increases attack damage), HP(increases max hp), SPD(increases dodge rate), and DEX(increases 'Dark matter' drop in chests and from aliens)). Then the story/plot corresponding to that level will be displayed before advancing to the next floor. If the player dies in a level, then it will be game over and the player would need to restart the program and either start a new game or load the previous save (The game will automatically save when a player enters a new level).
 
 Example of what the screen shows:
 
@@ -22,7 +22,7 @@ XOOOO
 
 The player (labeled X) is spawned at the bottom-left corner of the floor.
 
-The chests (labelled C) contain some 'Dark matter' (random number in a certain range).
+The chests (labelled C) contain some 'Dark matter' (random number in a certain range). Also recovers HP to Max HP when touched.
 
 Aliens (labelled A) drop a lot more 'Dark matter' when they are killed and some 'Dark matter' when the player successfully negotiated with them. They are neutral and friendly to the player, but if the player had killed some of them previously then they become less friendly and the player cannot negotiate with them at a certain point.
 
