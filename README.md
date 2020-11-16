@@ -62,26 +62,26 @@ There are multiple endings to the game depending on the number of aliens killed,
 
 <details>
 <summary>Spoilers for ending and routes and boss fight, please play the game first.</summary>
+   
+ending 1: friendly human (you killed no one and happy ending)  
+ending 2: Not so friendly human (you killed some and imprisoned the others)  
+ending 3: inhuman (you killed all of them)  
  
-ending 1: friendly human (you killed no one and happy ending)
-ending 2: Not so friendly human (you killed some and imprisoned the others)
-ending 3: inhuman (you killed all of them)
- 
-Boss fight:
-Occurs when the player has killed at least 1 alien. The boss gains more strength (His HP++ and Your Karma--) depending on your actions: How many aliens have you killed & have you killed her daughter.
-Walls are changed into Spikes On The Ground (Labelled U, stands for Under), The boss cannot pass, but the player can step on it to break it but it will deal damage to the player.
-The enemy gains 1 attack range.
-The enemy will break the obstacle in its way after 1 turn when it is stuck.
-The weakness points of the boss changes location every 10 turns when not touched.
-New mechanic-karma will be introduced. Karma with a value of 2-6 (more kills-less kills) will be generated. Each turn that player moves horizontally: karma--. When karma reaches 0, the player's HP will start to drain. Move vertically or break a spike to reset karma.
+Boss fight:  
+Occurs when the player has killed at least 1 alien. The boss gains more strength (His HP++ and Your Karma--) depending on your actions: How many aliens have you killed & have you killed her daughter.  
+Walls are changed into Spikes On The Ground (Labelled U, stands for Under), The boss cannot pass, but the player can step on it to break it but it will deal damage to the player.  
+The enemy gains 1 attack range.  
+The enemy will break the obstacle in its way after 1 turn when it is stuck.  
+The weakness points of the boss changes location every 10 turns when not touched.  
+New mechanic-karma will be introduced. Karma with a value of 2-6 (more kills-less kills) will be generated. Each turn that player moves horizontally: karma--. When karma reaches 0, the player's HP will start to drain. Move vertically or break a spike to reset karma.  
 
-Nerfs to the boss in the fight:
-Now the boss can step on the weakness point instead of just the player.
-The boss will be stunned for 3 turns when weakness point is being stepped on.
+Nerfs to the boss in the fight:  
+Now the boss can step on the weakness point instead of just the player.  
+The boss will be stunned for 3 turns when weakness point is being stepped on.  
 
-When you killed every alien:
+When you killed every alien:  
 
-Weakness points moves away from the player every 2 turns.
+Weakness points moves away from the player every 2 turns.  
 
 
 </details>
