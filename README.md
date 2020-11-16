@@ -44,6 +44,8 @@ O123OOO
 OOOO2OO  
 EOOOOOO
 
+WASD to move, any other keys to skip a turn (let the enemy move).
+
 The player (labelled X) is spawned in the middle of a 7x7 floor, player can exit the battle (flee from the battle) by running to the upper right corner.
 The enemy (labelled E) will be spawned at the leftmost and the bottomost of the floor and try to approach the player, players cannot run into it.
 
