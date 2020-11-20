@@ -17,11 +17,7 @@ using namespace std;
 int stats[8]={5,5,1,1,0,0,0,0};//ATK, HP, SPD, DEX, DM, Level, Kills, Killed princess (1 or 0),
 vector<vector<char>> levelmap(5, vector<char>(5, '0'));
 vector<vector<char>> combatlevel(7, vector<char>(7, '0'));
-//char levelmap[5][5];
-//char combatlevel;
-int battlegenerateweakness();
 int kingbattle(int x[8]);
-void alienquote();
 
 void cd(string x){//stands for chapter display; input:strings; cout story;
     system("clear");
@@ -1306,6 +1302,7 @@ ________________________________________________________________________________
         cd("The people on Earth has moved to Sram, and they live peacefully with the locals.");
         cd("Since the population on Earth has decreased sharply, the energy shortage on Earth was solved as well.");
         cd("THE END.");
+        cd("Thank you for playing!");
         return 0;
     case 2:
         cd("Several months later:");
@@ -1317,6 +1314,7 @@ ________________________________________________________________________________
         cd("The people on Earth has moved to Sram. And the citizens of Sram were imprisoned.");
         cd("Since the population on Earth has decreased sharply, the energy shortage on Earth was solved as well.");
         cd("THE END.");
+        cd("Thank you for playing!");
         return 0;
     case 3:
         cd("Several months later:");
@@ -1325,6 +1323,7 @@ ________________________________________________________________________________
         cd("The people on Earth has moved to Sram. And the citizens of Sram were imprisoned.");
         cd("Since the population on Earth has decreased sharply, the energy shortage on Earth was solved as well.");
         cd("THE END.");
+        cd("Thank you for playing!");
         return 0;
     case 4:
         cd("Several months later:");
@@ -1333,6 +1332,7 @@ ________________________________________________________________________________
         cd("The people on Earth has moved to Sram.");
         cd("Since the population on Earth has decreased sharply, the energy shortage on Earth was solved as well.");
         cd("THE END.");
+        cd("Thank you for playing!");
         return 0;
     }
 
