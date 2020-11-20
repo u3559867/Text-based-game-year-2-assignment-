@@ -6,7 +6,7 @@
 
 using namespace std;
 
-int main()
+int save()
 {
 	ofstream fout;
 	fout.open(filename); //file that stored in
