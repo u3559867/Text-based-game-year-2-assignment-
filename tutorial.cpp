@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-int main()
+int tutorial()
 {
 	char contin = 'C';
 	while (contin != 'e' && contin != 'E') {
