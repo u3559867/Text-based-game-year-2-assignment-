@@ -4,10 +4,10 @@
 #include <string>
 using namespace std;
 
-int load()
+int load(int x[8])
 {
 	ifstream fin;
-	fin.open(filename); //file that load in
+	fin.open("savefile"); //file that load in
 
 	//file cannot open
 	if (fin.fail())

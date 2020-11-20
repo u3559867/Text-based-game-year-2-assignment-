@@ -5,8 +5,13 @@
 #include <time.h>
 #include <vector>
 #include <string>
-
+//functions in external cpp files here
+inline void PAUSE();
+int hangman(int x[8],int &hangman_runtime);
 int hangman_runtime=0; //Global variable requested by Alex
+int load(int x[8]);
+int save(int x[8]);
+int tutorial();
 
 using namespace std;
 int stats[8]={5,5,1,1,0,0,0,0};//ATK, HP, SPD, DEX, DM, Level, Kills, Killed princess (1 or 0),
@@ -17,13 +22,6 @@ vector<vector<char>> combatlevel(7, vector<char>(7, '0'));
 int battlegenerateweakness();
 int kingbattle(int x[8]);
 void alienquote();
-
-inline void PAUSE()//system("pause") alternative for CS servers
-{
-    std::string temp;
-    std::cout << "Press Enter to continue..." << std::endl;
-    std::getline(std::cin, temp);
-}
 
 void cd(string x){//stands for chapter display; input:strings; cout story;
     system("clear");
@@ -262,9 +260,6 @@ int story(int x[8]){//Storyline display; input player stats; uses cd() to displa
             return 0;
         }
     }
-}
-
-void save(){//Alex
 }
 
 char randomstrength(){//random wall strength in levels, i.e. function battlegenerate(); change random int to char
@@ -1131,7 +1126,7 @@ int Levelstart(int x[8]){ //input=your stats; return 1=you died=>level lost=>gam
                             choice = 'K';
                             continue;
                         }
-                        outcome=Hangman(stats, hangman_runtime);
+                        outcome=hangman(stats, hangman_runtime);
                         switch(outcome){
                             case 0:
                                 system("clear");
@@ -1145,7 +1140,7 @@ int Levelstart(int x[8]){ //input=your stats; return 1=you died=>level lost=>gam
                                 levelmap[prevypos][prevxpos]='0';
                                 prevypos=ypos;
                                 prevxpos=xpos;
-                            case 2://cancelled
+                            case 1://cancelled
                                 xpos=prevxpos;
                                 ypos=prevypos;
                                 levelmap[ypos][xpos]='X';
@@ -1183,8 +1178,8 @@ void upgrade(int x[8]){//upgrades;input=your stats
         {
         system("clear");
         cout<<"Press 1 to level up your ATK (increase Attack Damage during battle)\n";
-        cout<<"Press 2 to level up your Max HP (increase Max Health)\n";
-        cout<<"Press 3 to level up your SPD (increase chance of evading an enemy attack during battle)\n";
+        cout<<"Press 2 to level up your Max HP (increase Max Health and max guesses)\n";
+        cout<<"Press 3 to level up your SPD (increase chance of evading an enemy attack and more time between guesses)\n";
         cout<<"Press 4 to level up your DEX (increase gold income)\n";
         cout<<"Press 0 to finish\n\n";
 
@@ -1248,7 +1243,7 @@ int Gamestart(int x[8]){//return 1=you died, return 2=ending1...etc
         upgrade(stats);
         x[5]++;
         story(stats);
-        save();
+        save(stats);
     }
     x[5]++;
     switch(story(stats)){
@@ -1296,7 +1291,7 @@ ________________________________________________________________________________
                 break;
             case 'C':
             case 'c':
-                load();
+                load(stats);
                 gameover=Gamestart(stats);
                 break;
         }

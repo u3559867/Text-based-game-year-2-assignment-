@@ -6,13 +6,13 @@
 
 using namespace std;
 
-int save()
+int save(int x[8])
 {
 	ofstream fout;
-	fout.open(filename); //file that stored in
+	fout.open("savefile"); //file that stored in
 
 	//file cannot open
-	if (outputfile.fail())
+	if (fout.fail())
 	{
 		cout << "Error in file opening!" << endl;
 		exit(1);
@@ -23,6 +23,7 @@ int save()
 	for(int i = 0; i < 8; i++)
 	{
 		fout << x[i];
+		fout <<" ";
 	}
     
 	fout.close();

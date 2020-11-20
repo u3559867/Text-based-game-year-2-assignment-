@@ -81,7 +81,7 @@ int tutorial()
 			cout << "A floor consists of a 7x7 plane." << endl;
 			cout << endl;
 			cout << "OOOOOOF" << endl;
-			cout << "OPO2OOO" << endl;
+			cout << "OWO2OOO" << endl;
 			cout << "OOOO3OO" << endl;
 			cout << "O1OXOOO" << endl;
 			cout << "OOOOOOO" << endl;
@@ -112,7 +112,6 @@ int tutorial()
 			cout << "Walls (labelled 1-4, which represents the wall strength) are generated randomly on the map and not passable by the enemy nor the player." << endl;
 			cout << "However, the player can weaken the wall by walking into them (wall strength -1)" << endl;
 			cout << "When the wall strength is 0, the wall is demolished." << endl;
-			cout << "One 'Energy point' (labelled P) is generated randomly on the map and will not be surrounded by walls." << endl;
 			cout << "One 'Weakness point' (labelled W) is generated randomly on the map, then it will deal damage to the enemy. The higher the ATK, the higher the damage." << endl;
 			cout << "There are different endings depending on the number of aliens killed or negotiated." << endl;
 			cout << "Press button C and then enter to start over the tutorial again." << endl;
