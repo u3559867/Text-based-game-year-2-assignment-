@@ -28,7 +28,7 @@ Aliens (labelled A) drop a lot more 'Dark matter' when they are killed and some 
 
 Negotiation initiation chance: 100% until 6 kills.
 
-Negotiation system (if chose to negotiate with the alien): // to be fixed
+Negotiation system (if chose to negotiate with the alien):
 note: have a chance of not popping up as mentioned above (i.e. if the player has killed someone).
 A hangman game with random words and a certain time limit per guess.
 SPD gives more time per guess.
