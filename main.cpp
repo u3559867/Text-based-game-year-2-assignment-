@@ -6,6 +6,8 @@
 #include <vector>
 #include <string>
 
+int hangman_runtime=0; //Global variable requested by Alex
+
 using namespace std;
 int stats[8]={5,5,1,1,0,0,0,0};//ATK, HP, SPD, DEX, DM, Level, Kills, Killed princess (1 or 0),
 vector<vector<char>> levelmap(5, vector<char>(5, '0'));
@@ -279,10 +281,6 @@ char randomstrength(){//random wall strength in levels, i.e. function battlegene
     case 4:
         return '5';
     }
-}
-
-int Hangman(int x[8]){//Alex
-    return 0;
 }
 
 void battlegenerate(vector<vector<char>> &x){//generate battlefield; input: 7x7 2d vector
@@ -955,14 +953,6 @@ void alienquote(int x){//input: your kills; cout: quotes by aliens
 
 }
 
-void Tutorial(){//Alex
-
-}
-
-void Load(){//Alex
-
-}
-
 void levelgenerate(vector<vector<char>> &x,int a){//generate level: 5x5 2d vector, no. of aliens in that level
     int y=a;
     int z=5;
@@ -1141,7 +1131,7 @@ int Levelstart(int x[8]){ //input=your stats; return 1=you died=>level lost=>gam
                             choice = 'K';
                             continue;
                         }
-                        outcome=Hangman(stats);
+                        outcome=Hangman(stats, hangman_runtime);
                         switch(outcome){
                             case 0:
                                 system("clear");
@@ -1300,12 +1290,13 @@ ________________________________________________________________________________
         {
             case 'N':
             case 'n':
+                tutorial();
                 story(stats);
                 gameover=Gamestart(stats);
                 break;
             case 'C':
             case 'c':
-                Load();
+                load();
                 gameover=Gamestart(stats);
                 break;
         }
