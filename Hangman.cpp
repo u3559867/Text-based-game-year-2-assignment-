@@ -136,7 +136,7 @@ int Hangman(int x[8],int &hangman_runtime) {
         cd.join();
         i.join();
         if(timeoutjor==1){
-            return 0;
+            return 1;
         }
       if (word.find(guess) != string::npos) {
         /* To update the string answer
