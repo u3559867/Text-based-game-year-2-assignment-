@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-int main()
+int load()
 {
 	ifstream fin;
 	fin.open(filename); //file that load in
